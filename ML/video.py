@@ -23,14 +23,15 @@ def main():
         'surprise':6
     }
     weights={
-        'neutral':0.95,
+        'neutral':1,
         'angry':1,
         'disgust':1,
-        'fear':0.8,
-        'happy':0.9,
-        'sad':0.75,
+        'fear':1,
+        'happy':1,
+        'sad':1,
         'surprise':1
     }
+    threshold = 20;
 
     """
     cap = cv2.VideoCapture(0)
@@ -42,7 +43,7 @@ def main():
 
     maxStr=""
     maxVal=0
-    bounding_box = {'left': 12, 'top': 80, 'width': 920, 'height': 920,"mon":0}
+    bounding_box = {'left': 12, 'top': 80, 'width': 1300, 'height': 1300,"mon":0}
     with  mss() as sct:
         while True:
             sct_img = sct.grab(bounding_box)
@@ -63,11 +64,11 @@ def main():
                     if val>maxVal:
                         maxStr=key
                         maxVal=val
-                if (maxVal<60):
+                if (maxVal<threshold):
                     continue
                 print(str(emotions[maxStr])+": "+str(maxVal))
                 try:
-                    requests.post(url, data = {'emotion': emotions[maxStr]})
+                    requests.post(url, data = {'emotion': emotions[maxStr]}, verify=True)
                 except:
                     continue
             else:
