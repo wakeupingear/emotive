@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+networking = false;
+
 enum Emotions{none = -1, neutral = 0, angry = 1, disgust = 2, fear = 3, happy = 4, sad = 5, surprise = 6};
 emotion = Emotions.neutral;
 lastEmotion = Emotions.none;
