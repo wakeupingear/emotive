@@ -9,12 +9,9 @@ const RouterPage = (
   props: { pageComponent: JSX.Element } & RouteComponentProps
 ) => props.pageComponent;
 
-let gameDiv=(<h1>Game goes here</h1>);
-
 ReactDOM.render(
   <React.StrictMode>
      <Router>
-        <RouterPage path="/game" pageComponent={gameDiv} />
         <RouterPage path="/" pageComponent={<App/>} />
       </Router>
   </React.StrictMode>,
