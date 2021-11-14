@@ -9,7 +9,6 @@ import logging
 import requests
 
 def main():
-    os.environ['DISPLAY'] = ':0'
     url="http://localhost:5000/emotion"
     isPosition=sys.argv[1]
     if len(sys.argv) >2:
@@ -34,10 +33,7 @@ def main():
 
     maxStr=""
     maxVal=0
-    old_stdout = sys.stdout
-
-    bounding_box = {'left': 160, 'top': 160, 'width': 200, 'height': 200,"mon":0}
-
+    bounding_box = {'left': 12, 'top': 80, 'width': 920, 'height': 920,"mon":0}
     with  mss() as sct:
         while True:
             sct_img = sct.grab(bounding_box)
@@ -58,7 +54,10 @@ def main():
                         maxStr=key
                         maxVal=val
                 print(emotions[maxStr])
-                #requests.post(url, data = {'emotion': emotions[maxStr]})
+                try:
+                    requests.post(url, data = {'emotion': emotions[maxStr]})
+                except:
+                    continue
             else:
                 cv2.imshow('screen', frame)
                 if cv2.waitKey(1) & 0xFF == 27:
