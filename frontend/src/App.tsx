@@ -5,7 +5,7 @@ import './App.css';
 import { Jutsu } from 'react-jutsu';
 
 function App() {
-  let gameURL = "https://api.willfarhat.com:5000/emotiveGame";
+  let gameURL = "http://api.willfarhat.com:9000/game";
   const roomName = "emotiveDemo";
 
   const date = new Date();
