@@ -5,7 +5,7 @@ if(!surface_exists(darkSurf)){
 	darkSurf = surface_create(1920, 1080);
 }
 surface_set_target(darkSurf);
-draw_clear(make_color_rgb(46,34,47));
+draw_clear_alpha(make_color_rgb(46,34,47), darkness);
 gpu_set_blendmode(bm_subtract);
 var scale = max(obj_cameraController.base_width / obj_cameraController.width, obj_cameraController.base_height / obj_cameraController.height);
 draw_circle((obj_ball.x - 64)/scale, (obj_ball.y - 64)/scale, 300/scale, false);
@@ -33,7 +33,5 @@ shader_reset();
 
 //Draw the darkness onto postsurf
 surface_set_target(postSurf);
-draw_set_alpha(darkness);
 draw_surface(darkSurf, 0, 0);
-draw_set_alpha(1);
 surface_reset_target();

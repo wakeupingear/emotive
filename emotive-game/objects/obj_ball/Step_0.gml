@@ -7,7 +7,15 @@ if(place_meeting(x + hsp, y+vsp, obj_player)){
 	var playerCenterX = obj_player.x + 32*obj_player.image_xscale;
 	var playerCenterY = obj_player.y + 32*obj_player.image_yscale + obj_player.hitTightening;	//The addition makes the hits trend upwards more
 	var hitDir = point_direction(playerCenterX, playerCenterY, x, y);
-	if(obj_player.emotion = Emotions.surprise){ hitDir = random_range(20, 160); }
+	if(obj_player.emotion == Emotions.surprise){ hitDir = random_range(20, 160); }
+	if(obj_player.emotion == Emotions.fear){
+		//pick a random brick, and shoot at it
+		var bricks = instance_number(obj_brick);
+		if(bricks > 0){
+			var target = instance_find(obj_brick, irandom_range(0, bricks-1));
+			hitDir = point_direction(x, y, target.x + 56, target.y + 28);
+		}
+	}
 	hsp = cos(degtorad(hitDir)) * obj_player.hitPower;
 	vsp = -sin(degtorad(hitDir)) * obj_player.hitPower;
 	
