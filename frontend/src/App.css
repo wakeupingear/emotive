@@ -14,7 +14,11 @@
 }
 
 .App-header {
-  background-color: var(--c_dark);
+  background: linear-gradient(126deg, #363553, #252c64);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 4s ease infinite;
+  -moz-animation: AnimationName 4s ease infinite;
+  animation: AnimationName 4s ease infinite;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +26,49 @@
   font-size: calc(10px + 2vmin);
   color: white;
   overflow-x: hidden;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 27% 0%
+  }
+  50% {
+    background-position: 74% 100%
+  }
+  100% {
+    background-position: 27% 0%
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 27% 0%
+  }
+  50% {
+    background-position: 74% 100%
+  }
+  100% {
+    background-position: 27% 0%
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 27% 0%
+  }
+  50% {
+    background-position: 74% 100%
+  }
+  100% {
+    background-position: 27% 0%
+  }
+}
+
+.vertical{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-link {
@@ -37,11 +84,19 @@
   }
 }
 
+#header {
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #headerGame {
   border: none;
   cursor: pointer;
   width: 100%;
-  height: 85zvh;
+  height: 85vh;
   box-shadow: 2px 2px 20px 13px rgba(0, 0, 0, 0.25);
   image-rendering: optimizeSpeed;
   /* STOP SMOOTHING, GIVE ME SPEED  */
@@ -59,7 +114,7 @@
   /* IE8+                           */
 }
 
-.clickable:hover{
+.clickable:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -68,11 +123,23 @@ h1 {
   color: var(--c_white);
 }
 
-.content {
+h2 {
+  color: var(--c_white);
+  font-size: 12rem;
+}
+
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#emotions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #about {
@@ -87,23 +154,25 @@ h1 {
   opacity: 0.0;
 }
 
-.text{
+.text {
   background-color: var(--c_accent);
-  padding:1vw;
+  padding: 1vw;
   font-size: calc(10px + 1vmin);
   border-radius: 1vw;
+  width: fit-content;
+  max-width: 70vh;
   box-shadow: 2px 2px 20px 13px rgba(0, 0, 0, 0.25);
 }
 
-#jitsiWindow{
+#jitsiWindow {
   box-shadow: 2px 2px 20px 13px rgba(0, 0, 0, 0.25);
 }
 
-#toggleButton{
-  width:40%;
+#toggleButton {
+  width: 40%;
 }
 
-#video{
+#video {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,19 +180,19 @@ h1 {
   margin: 2vw;
 }
 
-#footer{
+#footer {
   font-size: calc(10px + 1vmin);
   background-color: var(--c_accent);
-  padding:1vw;
+  padding: 1vw;
   box-shadow: 2px 2px 20px 13px rgba(0, 0, 0, 0.25);
 }
 
-a{
+a {
   color: var(--c_important);
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   color: var(--c_white);
   cursor: pointer;
 }
