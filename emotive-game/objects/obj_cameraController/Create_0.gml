@@ -15,3 +15,10 @@ centerX = x;
 centerY = y;
 screenShake = 0;
 screenShakeFalloff = 0.5;
+
+
+function startShake(mag){
+	if(mag > screenShake){
+		screenShake = mag;
+	}
+}
