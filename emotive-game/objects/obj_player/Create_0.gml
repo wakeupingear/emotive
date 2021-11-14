@@ -28,6 +28,8 @@ won = false;
 lost = false;
 resetTimer = 120;
 
+alarm[0] = 60;
+
 
 //Make the bricks
 for(var yy = 0; yy < 5; yy++){

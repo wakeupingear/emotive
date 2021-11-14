@@ -58,7 +58,6 @@ function collision(checkX, checkY){
 
 function popSound(){
 	var sound = irandom_range(0,5);
-	show_debug_message(sound);
 	switch(sound){
 	case 0: audio_play_sound(snd_pop_1, 1, false); break;
 	case 1: audio_play_sound(snd_pop_2, 1, false); break;
