@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_pop_5.wav",
-  "duration": 0.047891,
+  "duration": 0.043537,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

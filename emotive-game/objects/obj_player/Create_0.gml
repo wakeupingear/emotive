@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-networking = false;
+networking = true;
 
 enum Emotions{none = -1, neutral = 0, angry = 1, disgust = 2, fear = 3, happy = 4, sad = 5, surprise = 6};
 emotion = Emotions.neutral;
@@ -32,12 +32,24 @@ resetTimer = 120;
 
 alarm[0] = 60;
 
-
-//Make the bricks
-for(var yy = 0; yy < 5; yy++){
-	for(var xx = 0; xx < 8; xx++){
-		var newX = 576 + xx*112;
-		var newY = 288 + yy*56;
-		instance_create_layer(newX, newY, "Bricks", obj_brick);
+//Reset
+function restart(){
+	won = false;
+	lost = false;
+	resetTimer = 60;
+	for(var yy = 0; yy < 5; yy++){
+		for(var xx = 0; xx < 8; xx++){
+			var newX = 576 + xx*112;
+			var newY = 288 + yy*56;
+			if(!collision_point(newX + 16, newY + 16, obj_brick, false, false)){
+				instance_create_layer(newX, newY, "Bricks", obj_brick);
+			}
+		}
 	}
+	obj_ball.x = room_width / 2;
+	obj_ball.y = 576;
+	obj_ball.hsp = 0;
+	obj_ball.vsp = 7;
+	x = room_width / 2 - 32*image_xscale;
 }
+restart();

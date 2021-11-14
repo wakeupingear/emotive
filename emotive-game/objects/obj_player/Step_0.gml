@@ -122,5 +122,5 @@ if(won || lost){
 	resetTimer--;
 }
 if(resetTimer <= 0){
-	room_restart();
+	restart();
 }
