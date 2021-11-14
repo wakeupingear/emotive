@@ -110,7 +110,7 @@ if(instance_number(obj_brick) == 0){
 }
 
 //Check for loss
-if(!won && obj_ball.y > room_height){
+if(obj_ball.y > room_height){
 	lost = true;
 }
 

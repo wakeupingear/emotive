@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Router, RouteComponentProps } from "@reach/router";
+const RouterPage = (
+  props: { pageComponent: JSX.Element } & RouteComponentProps
+) => props.pageComponent;
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+     <Router>
+        <RouterPage path="/" pageComponent={<App/>} />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

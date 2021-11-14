@@ -8,9 +8,6 @@ if(place_meeting(x + hsp, y+vsp, obj_player)){
 	var hitDir = point_direction(playerCenterX, playerCenterY, x, y);
 	hsp = cos(degtorad(hitDir)) * obj_player.hitPower;
 	vsp = -sin(degtorad(hitDir)) * obj_player.hitPower;
-	
-	//fx
-	obj_cameraController.startShake(round(obj_player.hitPower/2));
 }
 
 ///Move and bounce off bricks or walls
