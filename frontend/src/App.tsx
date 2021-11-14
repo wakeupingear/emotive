@@ -36,7 +36,7 @@ function App() {
         </div>
         <div className="text">
           <p>EMOTIVE sends your webcam feed through Jitsi to a remote PC.</p>
-          <p>The PC performs real-time emotion detection, powered by TensorFlow.</p>
+          <p>The PC performs real-time emotion detection, powered by Meta's DeepFace deep learning model.</p>
           <p>The emotion data is sent to an external server, where it is proxied back to the game!</p>
         </div>
       </div>
