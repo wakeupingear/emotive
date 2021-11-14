@@ -22,6 +22,15 @@ def main():
         'sad':5,
         'surprise':6
     }
+    weights={
+        'neutral':0.95,
+        'angry':1,
+        'disgust':1,
+        'fear':0.8,
+        'happy':0.9,
+        'sad':0.75,
+        'surprise':1
+    }
 
     """
     cap = cv2.VideoCapture(0)
@@ -50,10 +59,11 @@ def main():
                 maxVal=0
                 
                 for key,val in result["emotion"].items():
+                    val*=weights[key]
                     if val>maxVal:
                         maxStr=key
                         maxVal=val
-                if (maxVal<70):
+                if (maxVal<60):
                     continue
                 print(str(emotions[maxStr])+": "+str(maxVal))
                 try:
