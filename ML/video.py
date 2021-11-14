@@ -53,7 +53,9 @@ def main():
                     if val>maxVal:
                         maxStr=key
                         maxVal=val
-                print(emotions[maxStr])
+                if (maxVal<70):
+                    continue
+                print(str(emotions[maxStr])+": "+str(maxVal))
                 try:
                     requests.post(url, data = {'emotion': emotions[maxStr]})
                 except:
