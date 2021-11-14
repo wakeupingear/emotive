@@ -6,6 +6,7 @@ if(place_meeting(x + hsp, y+vsp, obj_player)){
 	var playerCenterX = obj_player.x + 32*obj_player.image_xscale;
 	var playerCenterY = obj_player.y + 32*obj_player.image_yscale + obj_player.hitTightening;	//The addition makes the hits trend upwards more
 	var hitDir = point_direction(playerCenterX, playerCenterY, x, y);
+	if(obj_player.emotion = Emotions.surprise){ hitDir = random_range(20, 160); }
 	hsp = cos(degtorad(hitDir)) * obj_player.hitPower;
 	vsp = -sin(degtorad(hitDir)) * obj_player.hitPower;
 	

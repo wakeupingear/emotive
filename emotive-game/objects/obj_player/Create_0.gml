@@ -22,7 +22,7 @@ image_xscale = 3;
 image_yscale = .5;
 
 goalWidth = 3;
-
+goalY = y;
 
 won = false;
 lost = false;

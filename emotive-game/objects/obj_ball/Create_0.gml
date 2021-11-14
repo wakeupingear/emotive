@@ -17,7 +17,7 @@ function collision(checkX, checkY){
 		if(obj_player.emotion == Emotions.angry){
 			//make particles
 			for(var i = 0; i < 100; i++){
-				var part = instance_create_layer(hitCenterX, hitCenterY, "Instances", obj_explosionParticle);
+				var part = instance_create_layer(hitCenterX, hitCenterY, "Particles", obj_explosionParticle);
 				part.life = random_range(15, 30);
 				part.size = random_range(0.75, 1.5);
 				part.spd = random_range(0, 3);
@@ -35,7 +35,7 @@ function collision(checkX, checkY){
 		}else{
 			//Make normal particles
 			for(var i = 0; i < 30; i++){
-				var part = instance_create_layer(hitCenterX + random_range(-40, 40), hitCenterY + random_range(-20, 20), "Instances", obj_explosionParticle);
+				var part = instance_create_layer(hitCenterX + random_range(-40, 40), hitCenterY + random_range(-20, 20), "Particles", obj_explosionParticle);
 				part.life = random_range(15, 50);
 				part.size = random_range(0.2, 1);
 				part.spd = random_range(0, .5);

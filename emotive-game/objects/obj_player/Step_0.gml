@@ -20,6 +20,7 @@ if(emotion != lastEmotion){
 		goalWidth = 3;
 		hitPower = 10;
 		spd = 8;
+		goalY = 960;
 		break;
 	case(Emotions.angry):
 		color1goal = make_color_rgb(234,79,54);
@@ -28,22 +29,25 @@ if(emotion != lastEmotion){
 		goalWidth = 2;
 		hitPower = 10;
 		spd = 8;
+		goalY = 960;
 		break;
 	case(Emotions.disgust):
 		color1goal = make_color_rgb(162,169,71);
 		color2goal = make_color_rgb(103,102,51);
 		color3goal = make_color_rgb(76,62,36);
-		goalWidth = 3;
+		goalWidth = 5;
 		hitPower = 10;
 		spd = 8;
+		goalY = 960;
 		break;
 	case(Emotions.fear):
 		color1goal = make_color_rgb(98,85,101);
 		color2goal = make_color_rgb(62,53,70);
 		color3goal = make_color_rgb(46,34,47);
-		goalWidth = 3;
+		goalWidth = 5;
 		hitPower = 10;
 		spd = 8;
+		goalY = 960;
 		break;
 	case(Emotions.happy):
 		color1goal = make_color_rgb(30,188,115);
@@ -52,22 +56,25 @@ if(emotion != lastEmotion){
 		goalWidth = 3;
 		hitPower = 15;
 		spd = 12;
+		goalY = 960;
 		break;
 	case(Emotions.sad):
 		color1goal = make_color_rgb(77,101,180);
 		color2goal = make_color_rgb(72,74,119);
 		color3goal = make_color_rgb(50,51,83);
 		goalWidth = 3;
-		hitPower = 10;
+		hitPower = 7;
 		spd = 8;
+		goalY = 750;
 		break;
 	case(Emotions.surprise):
 		color1goal = make_color_rgb(246,129,129);
 		color2goal = make_color_rgb(240,79,120);
 		color3goal = make_color_rgb(131,28,93);
-		goalWidth = 3;
-		hitPower = 10;
+		goalWidth = 5;
+		hitPower = 12;
 		spd = 8;
+		goalY = 960;
 		break;
 	}
 	
@@ -88,6 +95,9 @@ color3 = make_color_rgb(lerp(color_get_red(color3), color_get_red(color3goal), c
 
 //Resize the paddle
 image_xscale = lerp(image_xscale, goalWidth, 0.1);
+
+//Move the paddle up or down
+y = lerp(y, goalY, 0.1);
 
 //Move according to input
 var moveDir = keyboard_check(ord("D")) - keyboard_check(ord("A"));
