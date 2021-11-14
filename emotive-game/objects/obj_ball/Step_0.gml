@@ -2,6 +2,7 @@
 
 
 //Collide with the player
+var hitSomething = false;
 if(place_meeting(x + hsp, y+vsp, obj_player)){
 	var playerCenterX = obj_player.x + 32*obj_player.image_xscale;
 	var playerCenterY = obj_player.y + 32*obj_player.image_yscale + obj_player.hitTightening;	//The addition makes the hits trend upwards more
@@ -12,6 +13,7 @@ if(place_meeting(x + hsp, y+vsp, obj_player)){
 	
 	//fx
 	obj_cameraController.startShake(round(obj_player.hitPower/2));
+	hitSomething = true;
 }
 
 ///Move and bounce off bricks or walls
@@ -25,6 +27,7 @@ if(collision(x + hsp, y)){
 		x += hdir;
 	}
 	hsp = -hsp;
+	hitSomething = true;
 }else{
 	x += hsp;
 }
@@ -39,6 +42,12 @@ if(collision(x, y + vsp)){
 		y += vdir;
 	}
 	vsp = -vsp;
+	hitSomething = true;
 }else{
 	y += vsp;
+}
+
+//Play sound
+if(hitSomething){
+	popSound();
 }

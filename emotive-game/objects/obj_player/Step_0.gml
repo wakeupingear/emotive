@@ -27,7 +27,7 @@ if(emotion != lastEmotion){
 		color2goal = make_color_rgb(179,56,49);
 		color3goal = make_color_rgb(110,39,39);
 		goalWidth = 2;
-		hitPower = 10;
+		hitPower = 11;
 		spd = 8;
 		goalY = 960;
 		break;

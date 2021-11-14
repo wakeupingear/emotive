@@ -25,10 +25,10 @@ function collision(checkX, checkY){
 			}
 			
 			//kill the other blocks
-			if(random(1)>0.5){instance_destroy(instance_place(hitCenterX+112, hitCenterY, obj_brick))};
-			if(random(1)>0.5){instance_destroy(instance_place(hitCenterX-112, hitCenterY, obj_brick))};
-			if(random(1)>0.5){instance_destroy(instance_place(hitCenterX, hitCenterY+56, obj_brick))};
-			if(random(1)>0.5){instance_destroy(instance_place(hitCenterX, hitCenterY-56, obj_brick))};
+			if(random(1)<0.75){instance_destroy(instance_place(hitCenterX+112, hitCenterY, obj_brick))};
+			if(random(1)<0.75){instance_destroy(instance_place(hitCenterX-112, hitCenterY, obj_brick))};
+			if(random(1)<0.75){instance_destroy(instance_place(hitCenterX, hitCenterY+56, obj_brick))};
+			if(random(1)<0.75){instance_destroy(instance_place(hitCenterX, hitCenterY-56, obj_brick))};
 			
 			//big shake
 			obj_cameraController.startShake(10);
@@ -52,5 +52,19 @@ function collision(checkX, checkY){
 	}
 	if(checkX < 576 || checkX > 1472 - image_xscale*64 || checkY < 128){
 		return true;
+	}
+}
+
+
+function popSound(){
+	var sound = irandom_range(0,5);
+	show_debug_message(sound);
+	switch(sound){
+	case 0: audio_play_sound(snd_pop_1, 1, false); break;
+	case 1: audio_play_sound(snd_pop_2, 1, false); break;
+	case 2: audio_play_sound(snd_pop_3, 1, false); break;
+	case 3: audio_play_sound(snd_pop_4, 1, false); break;
+	case 4: audio_play_sound(snd_pop_5, 1, false); break;
+	case 5: audio_play_sound(snd_pop_6, 1, false); break;
 	}
 }
