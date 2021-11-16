@@ -19,7 +19,10 @@ def main():
 
     while True:
         ret,frame = cap.read()
-        result=DeepFace.analyze(frame,actions=['emotion'])
+        try:
+            result=DeepFace.analyze(frame,actions=['emotion'],enforce_detection=False)
+        except:
+            continue
 
         font=cv2.FONT_HERSHEY_SIMPLEX
 
